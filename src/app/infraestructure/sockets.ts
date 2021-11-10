@@ -1,10 +1,10 @@
 import * as  socket from 'socket.io';
-import { BandList } from '../domain/BandList';
+import { EmployeList } from '../domain/EmployeList';
 
 export class Sockets {
     constructor(
         private io: socket.Server,
-        private bandlist = new BandList()
+        private bandlist = new EmployeList()
     ) {
         this.socketEvents();
     }

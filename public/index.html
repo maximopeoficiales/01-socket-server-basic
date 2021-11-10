@@ -22,7 +22,7 @@
       referrerpolicy="no-referrer"
     ></script>
     <script>
-      const socket = io("http://localhost:3000");
+      const socket = io("http://localhost:8083");
 
       socket.on("current-bands", function (data) {
         console.log(data);
