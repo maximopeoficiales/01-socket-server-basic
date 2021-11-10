@@ -2,6 +2,7 @@ import * as express from 'express';
 import * as http from 'http';
 import * as  socket from 'socket.io';
 import * as  path from 'path';
+import cors from 'cors';
 import { Sockets } from './sockets';
 import { config } from '../../config';
 
@@ -26,6 +27,8 @@ export class Server {
 
     middlewares() {
         this.app.use(express.static(path.join(__dirname, '../../../public')));
+        this.app.use(cors());
+
     }
 
     execute() {
