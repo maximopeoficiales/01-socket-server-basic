@@ -12,9 +12,12 @@ export class Sockets {
     socketEvents(): void {
         this.io.on('connection', (socket) => {
             console.log(socket.id);
-            socket.emit('current-bands', this.bandlist);
+            socket.emit('current-employes', this.bandlist.getEmployes());
 
-
+            socket.on('vote_employe', (id: string) => {
+                this.bandlist.increaseVote(id);
+                this.io.emit('current-employes', this.bandlist.getEmployes());
+            });
         });
     }
 }

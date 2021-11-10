@@ -1,25 +1,25 @@
-import { Employes } from "./employe";
+import { Employe } from "./employe";
 
 export class EmployeList {
-    private employes: Employes[];
+    private employes: Employe[];
     constructor() {
         this.employes = [
-            new Employes("Maximo Apaza", "Programmer"),
-            new Employes("Mayrin Apaza", "Doctor"),
-            new Employes("Jorge Perez", "Actor"),
-            new Employes("Jose Quispe", "Architec"),
+            new Employe("Maximo Apaza", "Programmer"),
+            new Employe("Mayrin Apaza", "Doctor"),
+            new Employe("Jorge Perez", "Actor"),
+            new Employe("Jose Quispe", "Architec"),
         ];
     }
 
     addEmploye(name: string, occupation: string): void {
-        this.employes.push(new Employes(name, occupation));
+        this.employes.push(new Employe(name, occupation));
     }
 
     removeBand(id: string): void {
         this.employes.filter(e => e.id !== id);
     }
 
-    getEmployes(): Employes[] {
+    getEmployes(): Employe[] {
         return this.employes;
     }
 

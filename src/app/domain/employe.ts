@@ -1,5 +1,5 @@
 import short from "short-uuid"
-export class Employes {
+export class Employe {
     public id: string;
     public name: string;
     public occupation: string;
@@ -11,6 +11,7 @@ export class Employes {
         this.id = short.generate();
         this.name = name;
         this.occupation = occupation;
+        this.votes = 0;
     }
 
 }
