@@ -28,6 +28,12 @@ export class Sockets {
                 this.bandlist.updateEmploye(data.id, data.name);
                 this.io.emit('current-employes', this.bandlist.getEmployes());
             });
+
+            socket.on('add_employe', (data: { name: string, occupation: string }) => {
+                this.bandlist.addEmploye(data.name, data.occupation);
+
+                this.io.emit('current-employes', this.bandlist.getEmployes());
+            });
         });
     }
 }
