@@ -11,11 +11,21 @@ export class Sockets {
 
     socketEvents(): void {
         this.io.on('connection', (socket) => {
-            console.log(socket.id);
+            console.log("Cliente conectado", socket.id);
             socket.emit('current-employes', this.bandlist.getEmployes());
 
             socket.on('vote_employe', (id: string) => {
                 this.bandlist.increaseVote(id);
+                this.io.emit('current-employes', this.bandlist.getEmployes());
+            });
+            socket.on('delete_employe', (id: string) => {
+
+                this.bandlist.removeEmploye(id);
+                this.io.emit('current-employes', this.bandlist.getEmployes());
+            });
+
+            socket.on('update_name_employe', (data: { name: string, id: string }) => {
+                this.bandlist.updateEmploye(data.id, data.name);
                 this.io.emit('current-employes', this.bandlist.getEmployes());
             });
         });

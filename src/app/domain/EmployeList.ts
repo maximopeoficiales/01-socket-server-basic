@@ -15,8 +15,8 @@ export class EmployeList {
         this.employes.push(new Employe(name, occupation));
     }
 
-    removeBand(id: string): void {
-        this.employes.filter(e => e.id !== id);
+    removeEmploye(id: string): void {
+        this.employes = this.employes.filter(e => e.id !== id);
     }
 
     getEmployes(): Employe[] {
@@ -32,11 +32,10 @@ export class EmployeList {
         });
     }
 
-    updateEmploye(id: string, name: string, occupation: string): void {
+    updateEmploye(id: string, name: string): void {
         this.employes = this.employes.map(employe => {
             if (employe.id === id) {
                 employe.name = name;
-                employe.occupation = occupation;
             }
             return employe;
         });
