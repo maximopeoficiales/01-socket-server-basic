@@ -12,6 +12,7 @@ export class Sockets {
     socketEvents(): void {
         this.io.on('connection', (socket) => {
             console.log("Cliente conectado", socket.id);
+
             socket.emit('current-employes', this.bandlist.getEmployes());
 
             socket.on('vote_employe', (id: string) => {
